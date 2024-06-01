@@ -1,13 +1,12 @@
 #timerlib.c src file...
 set(TIMER_LIB_SRC "timerlib.c")
+set(WHEEL_TIMER_LIB_SRC "WheelTimer.c")
 
 #Library
 add_library(${TIMER_LIB} STATIC
-				${TIMER_LIB_SRC})
+				${TIMER_LIB_SRC}
+				${WHEEL_TIMER_LIB_SRC})
 
-#Including Header file dir...
-target_include_directories(${TIMER_LIB} PUBLIC
-								${HEADER_DIR})
 
 #Linking dependent library...
 
@@ -17,7 +16,15 @@ if( NOT (CMAKE_SYSTEM_NAME STREQUAL "Linux") )
 endif()
 
 set(POSIX_TIMER_LIB rt)
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
 
 
 target_link_libraries(${TIMER_LIB} PUBLIC
-							${POSIX_TIMER_LIB})
+							${POSIX_TIMER_LIB}
+							Threads::Threads)
+
+
+#Including Header file dir...
+target_include_directories(${TIMER_LIB} PUBLIC
+								${HEADER_DIR})

@@ -48,12 +48,6 @@ timer_callback_wrapper(union sigval arg) {
 		return;
 	}
 
-	if (timer->timer_state == TIMER_RESUMED) {
-		if (timer->sec_exp_time != 0) {
-			timer->timer_state = TIMER_RUNNING;
-		}
-	}
-
 	(timer->cb)(timer, timer->user_arg);
 
 	if (timer->exponential_backoff) {
@@ -157,6 +151,7 @@ delete_timer(Timer_t* timer) {
 	timer_set_state(timer, TIMER_DELETED);
 	free(timer->posix_timer);
 	free(timer);
+	timer = NULL;
 }
 
 void
