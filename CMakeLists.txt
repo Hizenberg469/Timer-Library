@@ -21,6 +21,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/$<CONFIG>")
 
 #Library Name...
 set(TIMER_LIB timer)
+set(WHEELTIMER_LIB wheeltimer)
 
 
 #Header file directory...

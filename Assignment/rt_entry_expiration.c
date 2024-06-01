@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <timerlib.h>
 #include <assert.h>
+#include <string.h>
 #include "rt.h"
 
 static rt_table_t rt;
