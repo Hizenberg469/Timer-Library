@@ -53,6 +53,20 @@ typedef struct _wheel_timer_t {
     Timer_t* wheel_thread;
     slotlist_t reschd_list;
     unsigned int no_of_wt_elem;
+
+    /*Note*/
+    /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+    /*
+    * This is type of error which zero elements.
+    * This type of declaration is used to allocate
+    * contigious memory to array when they are a part
+    * of structure and they are dynamically allocated
+    * during allocation of memory of object the same
+    * structure.
+    * 
+    * structure ---> [ pro1, pro2, pro3, arr[..........] ]
+    */
+    /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
     slotlist_t slotlist[0];
 } wheel_timer_t;
 

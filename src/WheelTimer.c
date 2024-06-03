@@ -133,8 +133,10 @@ wheel_fn(Timer_t* timer, void* arg) {
 wheel_timer_t*
 init_wheel_timer(int wheel_size, int clock_tic_interval) {
 
+    /*@@@@@@@@@@@@@@@@@@@*/
     wheel_timer_t* wt = calloc(1, sizeof(wheel_timer_t) +
         (wheel_size * sizeof(slotlist_t)));
+    /*@@@@@@@@@@@@@@@@@@@*/
 
     wt->clock_tic_interval = clock_tic_interval;
     wt->wheel_size = wheel_size;
